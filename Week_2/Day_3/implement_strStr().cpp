@@ -1,13 +1,16 @@
- public int strStr(String haystack, String needle) {
-        int n = haystack.length();
-        int n1=needle.length();
-        for(int i=0;i<n-n1+1;i++){
-            if(haystack.charAt(i)==needle.charAt(0)){
-                if(haystack.substring(i,n1+i).equals(needle)){
-                    return i;
-                }
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int n=haystack.size();
+        int m=needle.size();
+        for (int i=0;i<=n-m;i++){
+            int j=0;
+            while(j<m && haystack[i+j]==needle[j]){
+                j++;
             }
+            if(j==m)
+            return i;
         }
         return -1;
     }
-}
+};
